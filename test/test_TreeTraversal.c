@@ -1,5 +1,6 @@
 #include "unity.h"
 #include "TreeTraversal.h"
+#include "Node.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -34,6 +35,34 @@ void test_tranverseInOrder(void){
     tranverseInOrder(node10);
 }
 
+
+/**
+*          100
+*       /     \
+*     50       120
+*   /  \       / \
+*  10    60   110  125
+*               \
+*               115
+*
+* OUTPUT = 10 50 60 100 110 115 120 125
+**/
+void test_tranverseInOrder_100(void){
+    //Build number tree
+    printf("In Order test 100\n");
+    Node * node115 = createNode(115,NULL,NULL);
+    Node * node110 = createNode(110,NULL,node115);
+    Node * node125 = createNode(125,NULL,NULL);
+    Node * node120 = createNode(120,node110,node125);
+    Node * node10 = createNode(10,NULL,NULL);
+    Node * node60 = createNode(60,NULL,NULL);
+    Node * node50 = createNode(50,node10,node60);
+    Node * node100 = createNode(100,node50,node120);
+
+    //Test
+    tranverseInOrder(node100);
+}
+
 /**
 *          10
 *       /    \
@@ -59,6 +88,33 @@ void test_tranversePreOrder(void){
 
     //Test
     tranversePreOrder(node10);
+}
+
+/**
+*          100
+*       /     \
+*     50       120
+*   /  \       / \
+*  10    60   110  125
+*               \
+*               115
+*
+* OUTPUT = 100 50 10 60 120 110 115 125
+**/
+void test_tranversePreOrder_100(void){
+    //Build number tree
+    printf("In Order test 100\n");
+    Node * node115 = createNode(115,NULL,NULL);
+    Node * node110 = createNode(110,NULL,node115);
+    Node * node125 = createNode(125,NULL,NULL);
+    Node * node120 = createNode(120,node110,node125);
+    Node * node10 = createNode(10,NULL,NULL);
+    Node * node60 = createNode(60,NULL,NULL);
+    Node * node50 = createNode(50,node10,node60);
+    Node * node100 = createNode(100,node50,node120);
+
+    //Test
+    tranversePreOrder(node100);
 }
 
 /**
@@ -88,25 +144,29 @@ void test_tranversePostOrder(void){
     tranversePostOrder(node10);
 }
 
-
-/*
-void test_getTreeHeight(void){
+/**
+*          100
+*       /     \
+*     50       120
+*   /  \       / \
+*  10    60   110  125
+*               \
+*               115
+*
+* OUTPUT = 10 60 50 115 110 125 120 100
+**/
+void test_tranversePostOrder_100(void){
     //Build number tree
-    Node * node9 = createNode(9,NULL,NULL);
-    Node * node8 = createNode(8,NULL,node9);
-    Node * node6 = createNode(6,NULL,NULL);
-    Node * node7 = createNode(7,node6,node8);
-    Node * node1 = createNode(1,NULL,NULL);
-    Node * node3 = createNode(3,NULL,NULL);
-    Node * node10 = createNode(10,node7,NULL);
-    Node * node12 = createNode(12,NULL,NULL);
-    Node * node2 = createNode(2,node1,node3);
-    Node * node4 = createNode(4,NULL,node2);
-    Node * node11 = createNode(11,node10,node12);
-    Node * node5 = createNode(5,node4,node11);
+    printf("In Order test 100\n");
+    Node * node115 = createNode(115,NULL,NULL);
+    Node * node110 = createNode(110,NULL,node115);
+    Node * node125 = createNode(125,NULL,NULL);
+    Node * node120 = createNode(120,node110,node125);
+    Node * node10 = createNode(10,NULL,NULL);
+    Node * node60 = createNode(60,NULL,NULL);
+    Node * node50 = createNode(50,node10,node60);
+    Node * node100 = createNode(100,node50,node120);
 
     //Test
-    int length = getTreeHeight(node5);
-    TEST_ASSERT_EQUAL(6,length);
+    tranversePostOrder(node100);
 }
-*/
