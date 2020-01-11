@@ -9,5 +9,6 @@ struct Node{
     Node * right ;
 };
 
-Node * createNode(int value,  Node * left ,Node * right);
+#define freeNode(node)                                      \
+                          do{if(node) free(node);} while(0)
 #endif // _NODE_H

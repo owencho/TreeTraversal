@@ -8,6 +8,25 @@
 void setUp(void){}
 void tearDown(void){}
 
+Node * createNode(int value,  Node * left ,Node * right){
+    Node * node = malloc(sizeof(Node));
+    node->value = value ;
+    node->left = left;
+    node->right = right;
+    return node;
+}
+
+void freeAllNodesInTree(Node *root){
+    if(root == NULL) return;
+    if(root->left != NULL){
+        freeAllNodesInTree(root->left);
+    }
+    if (root->right != NULL){
+        freeAllNodesInTree(root->right);
+    }
+    freeNode(root);
+}
+
 /**
 *          10
 *       /    \
@@ -31,8 +50,8 @@ void test_tranverseInOrder(void){
     Node * node5 = createNode(5,node1,node6);
     Node * node10 = createNode(10,node5,node20);
 
-    //Test
     tranverseInOrder(node10);
+    freeAllNodesInTree(node10);
 }
 
 
@@ -61,6 +80,7 @@ void test_tranverseInOrder_100(void){
 
     //Test
     tranverseInOrder(node100);
+    freeAllNodesInTree(node100);
 }
 
 /**
@@ -88,6 +108,7 @@ void test_tranversePreOrder(void){
 
     //Test
     tranversePreOrder(node10);
+    freeAllNodesInTree(node10);
 }
 
 /**
@@ -115,6 +136,7 @@ void test_tranversePreOrder_100(void){
 
     //Test
     tranversePreOrder(node100);
+    freeAllNodesInTree(node100);
 }
 
 /**
@@ -142,6 +164,7 @@ void test_tranversePostOrder(void){
 
     //Test
     tranversePostOrder(node10);
+    freeAllNodesInTree(node10);
 }
 
 /**
@@ -169,4 +192,5 @@ void test_tranversePostOrder_100(void){
 
     //Test
     tranversePostOrder(node100);
+    freeAllNodesInTree(node100);
 }

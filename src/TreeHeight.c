@@ -4,6 +4,9 @@
 #include <string.h>
 int getTreeHeight(Node * root){
     int left =0, right = 0;
+    if(root ==NULL){
+      return 0;
+    }
     if(root->left != NULL){
         left = getTreeHeight(root->left);
     }

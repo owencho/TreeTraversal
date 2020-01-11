@@ -4,6 +4,4 @@
 void tranverseInOrder(Node * root);
 void tranversePreOrder(Node * root);
 void tranversePostOrder(Node * root);
-
-
 #endif // _TREETRAVERSAL_H
