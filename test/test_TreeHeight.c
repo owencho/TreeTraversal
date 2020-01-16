@@ -97,20 +97,6 @@ void test_getTreeHeight_1_5_6_10_11_12_20(void){
 }
 
 void test_getTreeHeight_NULL_input(void){
-    //Build number tree
-    initNode(&node9,9,NULL,NULL);
-    initNode(&node8,8,NULL,&node9);
-    initNode(&node6,6,NULL,NULL);
-    initNode(&node7,7,&node6,&node8);
-    initNode(&node1,1,NULL,NULL);
-    initNode(&node3,3,NULL,NULL);
-    initNode(&node10,10,&node7,NULL);
-    initNode(&node12,12,NULL,NULL);
-    initNode(&node2,2,&node1,&node3);
-    initNode(&node4,4,NULL,&node2);
-    initNode(&node11,11,&node10,&node12);
-    initNode(&node5,5,&node4,&node11);
-
     //Test
     length = getTreeHeight(NULL);
     TEST_ASSERT_EQUAL(0,length);

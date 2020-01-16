@@ -9,7 +9,7 @@ void tranverseInOrder(Node * root){
         tranverseInOrder(root->left);
     }
     printf("%d \n",root->value);
-    if (root->right != NULL){
+    if(root->right != NULL){
         tranverseInOrder(root->right);
     }
 }
@@ -19,7 +19,7 @@ void tranversePreOrder(Node * root){
     if(root->left != NULL){
         tranversePreOrder(root->left);
     }
-    if (root->right != NULL){
+    if(root->right != NULL){
         tranversePreOrder(root->right);
     }
 }
@@ -28,7 +28,7 @@ void tranversePostOrder(Node * root){
     if(root->left != NULL){
         tranversePostOrder(root->left);
     }
-    if (root->right != NULL){
+    if(root->right != NULL){
         tranversePostOrder(root->right);
     }
     printf("%d \n",root->value);
